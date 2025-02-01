@@ -39,7 +39,7 @@ jobs:
         # we can use `changeset status` command to get the new version and then use it in the next steps.
         # 🔗 See: https://github.com/changesets/action/issues/303#issuecomment-1888167265
         run: |
-          npm run changeset status -- --output=release.json
+          bun changeset status --output=release.json
           NEW_VERSION=$(jq -r '.releases[0].newVersion' release.json)
           echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_OUTPUT
           rm release.json
